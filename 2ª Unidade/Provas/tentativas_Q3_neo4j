@@ -1,0 +1,11 @@
+match (n:Receita)-[:precisa]->(u:Utensilio)
+where not u.nome in ['liquidificador']
+return DISTINCT n.nome
+
+match (n:Receita),(u:Utensilio)
+where not (n)-[:precisa]->(u{nome:'liquidificador'})
+return DISTINCT n.nome
+
+match (n:Receita)-[:precisa]->(u:Utensilio)
+where u.nome <> 'liquidificador'
+return DISTINCT n.nome

@@ -1,0 +1,322 @@
+db.createCollection('funcionarios')
+
+db.funcionarios.insertMany([
+	{_id: 1, 
+	nome: 'Marcelo Bezerra da Silva',
+        rg: 8025305,
+	cpf: 35312564505,
+        salario: 6358.17,
+        'data nascimento':'1981-07-20',
+        sexo: 'M',
+        filhos: [{nome:"Carla", idade:9},{nome:"Pedro", idade:6},{nome:"Lucas", idade:4}],
+        cargo: 'Gerente Administrativo',
+        'primeiro emprego': false,
+        endereco: {
+            logradouro:'Rua Alberto Farias',
+            numero: 500,
+            bairro:'Palmital',
+            cidade:'Linhares',
+            estado:'ES',
+            cep:29906735},
+        telefones:[2233491480, 6825674960],
+        construtora: 'Construtec'},
+    
+        {_id: 2, 
+	nome: 'Olga Castanho Pestana',
+        rg: 210651416,
+	cpf: 37838835712,
+        salario: 2546.37,
+        'data nascimento':'1987-12-08',
+        sexo: 'F',
+        filhos: [{nome:"Maria", idade:17},{nome:"Paula", idade:15}],
+        cargo: 'Pintor',
+        endereco: {
+            logradouro:'Rua do Alvorecer',
+            numero: 237,
+            bairro:'Redinha',
+            cidade:'Natal',
+            estado:'RN',
+            cep:59122405},
+        telefones:[38950352124, 59988078828, 85967842733],
+        construtora: 'Bragança Lopes'},
+        
+        {_id: 3, 
+        nome: 'Adriano Candal Matos',
+        rg: 394664516,
+	cpf: 05361844101,
+        salario: 5370.00,
+        'data nascimento':'2000-04-17',
+        sexo: 'M',
+        cargo: 'Encarregado de Obras',
+        'primeiro emprego': true,
+        endereco: {
+            logradouro:'Travessa Q2',
+            numero: 5200,
+            bairro:'São Conrado',
+            cidade:'Aracaju',
+            estado:'SE',
+            cep:49043323},
+        telefones:[8335075820],
+        construtora: 'Construtec'},
+        
+        {_id: 4, 
+	nome: 'Sávio Farias Rezende',
+        rg: 348767407,
+	cpf: 46136784203,
+        salario: 13102.85,
+        'data nascimento':'1968-05-29',
+        sexo: 'M',
+        filhos: [{nome:"Roberto", idade:33},{nome:"Paulo", idade:30},{nome:"Samara", idade:28},
+                 {nome:"Alexandre", idade:25},{nome:"Joana", idade:22}],
+        cargo: 'Engenheiro civil',
+        'primeiro emprego': false,
+        endereco: {
+            logradouro:'Avenida Francisco de Holanda',
+            numero: 659,
+            bairro:'Cidade Universitáriao',
+            cidade:'Maceió',
+            estado:'AL',
+            cep:57073593},
+        telefones:[9629044085, 9932545716],
+        construtora: 'Construtec'},
+        
+        {_id: 5, 
+	nome: 'Adriele Paes Póvoa',
+        rg: 331135036,
+	cpf: 01651314209,
+        salario: 3079.25,
+        'data nascimento':'1994-05-18',
+        sexo: 'F',
+        filhos: [{nome:"Juliana", idade:7},{nome:"Igor", idade:2}],
+        cargo: 'Pedreiro',
+        'primeiro emprego': true,
+        endereco: {
+            logradouro:'Quadra SHIGS 705 Bloco Q',
+            numero: 23,
+            bairro:'Asa Sul',
+            cidade:'Brasília',
+            estado:'DF',
+            cep:70350717},
+        telefones:[8739341559, 3427253871, 8233663633],
+        construtora: 'Bragança Lopes'},
+        
+        {_id: 6, 
+	nome: 'Elielson Anjos Frossard',
+        rg: 170646415,
+	cpf: 41135472203,
+        salario: 8668.50,
+        'data nascimento':'1985-07-04',
+        sexo: 'M',
+        filhos: [{nome:"João", idade:10},{nome:"Marcos", idade:5}],
+        cargo: 'Engenheiro civil',
+        'primeiro emprego': false,
+        endereco: {
+            logradouro:'Rua Rodolfo Manoel Bento',
+            numero: 2202,
+            bairro:'Trindade',
+            cidade:'Florianópolis',
+            estado:'SC',
+            cep:88040490},
+        construtora: 'Bragança Lopes'},
+        
+        {_id: 7, 
+	nome: 'Emanuele Pereira da Silva',
+        rg: 7076095,
+	cpf: 32565214535,
+        salario: 5023.18,
+        'data nascimento':'1983-06-12',
+        sexo: 'F',
+        cargo: 'Encarregado de Obras',
+        'primeiro emprego': true,
+        endereco: {
+            logradouro:'Travessa Olímpia',
+            numero: 23,
+            bairro:'Itacaranha',
+            cidade:'Salvador',
+            estado:'BA',
+            cep:40713510},
+        telefones:[8923788620, 9836014368, 6926371174, 8427700060],
+        construtora: 'Construtec LTDA.'},
+        
+        {_id: 8, 
+	nome: 'Milena da Silva Medeiros',
+        rg: 342184349,
+	cpf: 48984341185,
+        salario: 1750.00,
+        'data nascimento':'1985-07-19',
+        sexo: 'F',
+        cargo: 'Estagiário',
+        'primeiro emprego': true,
+        endereco: {
+            logradouro:'Rua Evandro Mattos',
+            numero: 120,
+            bairro:'Polido',
+            cidade:'Maceió',
+            estado:'AL',
+            cep:57062016},
+        telefones:[9525181423],
+        construtora: 'Construtec LTDA.'},
+        
+        {_id: 9, 
+	nome: 'Caleb Vitorino Dores',
+        rg: 461215317,
+	cpf: 55533923306,
+        salario: 3321.41,
+        'data nascimento':'1979-10-16',
+        sexo: 'M',
+        filhos: [{nome:"Tomas", idade:21},{nome:"Sandra", idade:18},
+                   {nome:"Tânia", idade:14}],
+        cargo: 'Pedreiro',
+        'primeiro emprego': false,
+        endereco: {
+            logradouro:'Avenida 01',
+            numero: 9,
+            bairro:'Curado',
+            cidade:'Jaboatão dos Guararapes',
+            estado:'PE',
+            cep:36033490},
+        telefones:[57997926346, 83913119690, 53974374902],
+        construtora: 'Bragança Lopes Edifícios S.A.'},
+
+])
+
+
+-- AUXILIARES
+db.getCollection('funcionarios').find({})
+db.funcionarios.deleteMany({})
+
+1.Camila Barbosa de Souza é a mais nova Gerente Administrativo da Bragança Lopes, é seu terceiro emprego, ela mora em Manaus, no bairro Castelo, sem filhos, seu telefone é 98756324103, seu rg é 4589632 e seu salário é de R$ 5255,33. Esses dados precisam ser cadastrados no banco, então adicione-os ao id 10.
+
+db.funcionarios.insertOne({
+    _id: 10,
+    nome:'Camila Barbosa de Souza',
+    rg:4589632,
+    salario:5255.33,
+    sexo:'F',
+    cargo:'Gerente Administrativo',
+    'primeiro emprego': false,
+    endereco:{
+        bairro:'Castelo',
+        cidade:'Manaus',
+        estado:'AM'
+        },
+    telefones:[98756324103],
+    construtora:'Bragança Lopes'
+    })
+
+
+2. Qual a média de salário por cargo?
+db.funcionarios.aggregate([{$group: {_id:'$cargo', media: {$avg:"$salario"}}}])
+
+
+3. Quantos funcionários trabalham na construtora Construtec?
+db.funcionarios.find({construtora:/Construtec/}).count()
+
+
+4. Quais funcionários recebem acima de 5 mil reais e tem filhos?
+db.funcionarios.find({salario: {$gt:5000}, filhos:{$exists:true}}, {nome: 1, _id: 0})
+
+
+5. Exiba os funcionários que moram no Nordeste do país, exceto os dois primeiros?
+db.funcionarios.find({$or:[{"endereco.estado":'PE'},
+db.funcionarios.find({$or:[{"endereco.estado":'PE'},
+{"endereco.estado":'BA'},
+{"endereco.estado":'SE'},
+{"endereco.estado":'AL'},
+{"endereco.estado":'RN'},
+{"endereco.estado":'PI'},
+{"endereco.estado":'MA'},
+{"endereco.estado":'PB'},
+{"endereco.estado":'CE'}]}, 
+{nome: 1, _id: 0}).skip(2)
+
+
+6. O funcionário de CPF 35312564505 se mudou e foi morar na cidade do Rio de Janeiro, no bairro Botafogo, na rua Carlos Andrade, 49. Atualize esses dados no banco.
+db.funcionarios.updateOne({cpf: 35312564505}, {$set:{endereco:{
+    logradouro:'Rua Carlos Andrade',
+    numero:49,
+    bairro:'Botafogo',
+    cidade:'Rio de Janeiro',
+    estado:'RJ'
+    }}})
+    
+    
+7. Quais os nomes dos funcionários que nasceram nos anos 80?
+db.funcionarios.find({'data nascimento':{$lt:'1990-01-01', $gte:'1980-01-01'}}, {nome:1, _id:0})
+
+    
+8. Quais os nomes dos funcionários que têm apenas 3 filhos?
+db.funcionarios.find({filhos:{$size:3}},{_id:0, nome:1})
+
+
+9. Qual o nome do funcionário mais novo?
+db.funcionarios.find({},{_id:0, nome:1}).sort({"data nascimento":-1}).limit(1)
+
+
+10. O funcionário que tem o filho mais velho de 7 anos de idade não tem mais o telefone 8233663633, portanto, exclua esse dado.
+db.funcionarios.updateOne({'filhos.0.idade':7},{$pull:{'telefones':8233663633}})
+
+11. Quais os nomes, sexo e cep dos funcionários que estão no primeiro emprego e recebem menos que R$ 4000,00?
+db.funcionarios.find({'primeiro emprego': true, salario: {$lt: 4000}},{_id:0, nome:1, sexo:1, 'endereco.cep':1})
+
+
+12. Quais são os cargos cadastrados nas construtoras?
+db.funcionarios.distinct('cargo')
+
+
+13. O funcionário de sobrenome Frossard foi desligado de sua construtora, então exclua-o da base de dados.
+db.funcionarios.deleteOne({nome:/Frossard$/})
+
+
+14. A funcionária que mora em Brasília teve uma filha chamada Valentina, inclua essa informação no banco.
+db.funcionarios.update({"endereco.cidade":'Brasília'},{$push:{'filhos':{nome: 'Valentina', idade: 0}}})
+
+
+15. Tânia, a filha mais nova de Caleb Vitorino Dores fez 15 anos, atualize esse dado no banco.
+db.funcionarios.update({nome:"Caleb Vitorino Dores"},{"$set":{'filhos.$[elem].idade':15}},
+{"arrayFilters":[{"elem.nome":'Tânia'}]})
+
+
+16. O funcionário de id = 3, Adriano Candal Matos, que nasceu em 17/04/2000, se mudou para a rua Paulo Marques, 15, bairro Executivo, em São Luis, no Maranhão e foi trabalhar na Bragança Lopes como Arquiteto, recebendo 7025.63 reais e 85741209653 é seu novo número de telefone. Este é o seu segundo emprego. Substitua essas informações no banco.
+
+db.funcionarios.replaceOne({_id:3},
+{_id:3,
+nome:'Adriano Candal Matos',
+'data nascimento': '2000-04-17',
+sexo:'M',
+salario:7025.63,
+cargo:'Arquiteto',
+'primeiro emprego':false,
+endereco:{ 
+    logradouro:'Rua Paulo Marques',
+    numero:15,
+    bairro:'Executivo',
+    cidade:'São Luis',
+    estado:'MA'
+    },
+telefones:[85741209653],
+construtora:'Bragança Lopes'})
+
+
+17. O Engenheiro civil da construtora Bragança Lopes adquiriu o telefone 96857412308, inclua-o no banco.
+db.funcionarios.update({cargo:"Engenheiro civil", construtora:/Bragança Lopes/},{
+$push: {'telefones':96857412308}})
+
+
+18. A construtora Construtec decretou falência e todos seus funcionários foram demitidos. Exclua-os do banco.
+db.funcionarios.deleteMany({construtora:/Construtec/})
+
+
+------------------------------------------------------------------------------------------------
+DATA DO FUNCIONARIO MAIS NOVO:
+db.funcionarios.aggregate([{$group: {_id:0, 'mais novo': {$max:'$data nascimento'}}}])
+
+
+
+
+
+
+
+
+
+

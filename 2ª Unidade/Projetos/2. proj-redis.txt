@@ -1,0 +1,112 @@
+DADOS DO E-COMMERCE
+
+hmset prod-000 descricao "SmartTV 50''" peso "7 kg" fabricante samsung preco 3269.59 estoque 12
+
+hmset prod-002 descricao "Fone de ouvido on-ear sem fio" fabricante Harman modelo JBLT510BTBLK preco 207.99 estoque 45
+
+hmset prod-003 descricao "Suporte para Notebook" fabricante Octoo modelo ‎UP-BL cor preto peso "290 g" dimensoes "‎16 x 2.5 x 26 cm" preco 49.90 estoque 47
+
+hmset prod-004 descricao "Smartphone Xiaomi Redmi Note 11" fabricante Xiaomi modelo "‎Redmi Note 11" cor "‎Grafite, Cinza" ram "‎6 GB" rom "‎128 GB" "sistema operacional" Android dimensoes "20 x 10 x 75 cm" preco 1380.00 estoque 546
+
+hmset prod-005 descricao "Colchão Solteiro D33" fabricante BF dimensoes "‎188 x 78 x 14 cm" tecido poliester cor preto preco 376.11 estoque 24
+
+hmset prod-006 descricao "Smartphone Samsung Galaxy A23" fabricante Samsung modelo "Galaxy A23" cor "Cinza Chumbo" ram "4 GB" rom "128 GB" "sistema operacional" Android preco 1379.00 estoque 76
+
+hmset prod-007 descricao "Caixa de Som Bluetooth Boombox 2" fabricante "HARMAN JBL" modelo "Boombox 2" cor Camuflado capacidade "80 W" dimensoes "65.2 x 44.3 x 25.4 cm" preco 2604.93 estoque 30
+
+hmset prod-008 descricao "Sony Playstation 4" fabricante Sony cor "Preto onix" ram "8 GB" rom "500 GB" CPU "AMD Jaguar" processador "1.6 GHz" preco 3076.92 estoque 50
+
+hmset prod-009 descricao "Apple Watch Series 3" fabricante Apple modelo "Series 3(GPS)" cor "Alumínio cinzento" tamanho "42 mm" preco 1859.00 estoque 72
+
+hmset prod-010 descricao "SSD Kingston A400" fabricante Kingston modelo A400 velocidade 350MB/s tamanho SA400S37/240G preco 179.90 estoque 133
+
+hmset prod-011 descricao "Jogo God of War Ragnorock" fabricante Sony plataforma PS5 status "Pré Venda" genero Ação preco 290.31 estoque 25
+
+hmset prod-012 descricao "Monitor Gamer Acer 27IPS" fabricante Acer modelo VG271 proporcao 16:9 tamanho 27'' hertz 165 preco 1599.90 estoque 118
+
+hmset prod-013 descricao "Teclado Mecânico Gamer" modelo "K552W-RGB" switches "Redragon MK. II DIY Preto" layout ABNT2 cor "Branco Lunar White" preco 229.90 estoque 92
+
+hmset prod-014 descricao "Garrafa Térmica" fabricante Contigo modelo "Matterhorn Monaco" capacidade "591 ml" peso "0.24 kg" cor Azul material "Aço inoxidável" dimensoes "‎7.3 x 9.5 x 26.1 cm" preco 76.90 estoque 119
+
+hmset prod-015 descricao "Actine Sabonete Líquido + Vit C" fabricante "‎Pierre Fabre" marca Darrow aroma "Aloe vera" "tipo de pele" "Oleosa a Mista" cor laranja dimensoes "‎6.3 x 6.3 x 19.5 cm" tamanho "400 g" peso "460 g" preco 65.90 estoque 25
+
+hmset prod-016 descricao "Mi Band 5 Global Version" fabricante Xiaomi marca Xiaomi modelo XMSH10HM ano 2020 ram "‎512 kB" rom "‎16 MB" cor preto peso "‎23.3 g" dimensoes "‎4.7 x 1.8 x 1.2 cm" preco 163.28 estoque 191
+
+hmset prod-017 descricao "Cadeira Gamer Profissional TGC12" fabricante ThunderX3 marca ThunderX3 modelo TGC12BK cor preto dimensoes "‎66 x 70 x 133 cm" peso "‎60 g" preco 1519.22 estoque 3
+
+
+
+CONSULTAS
+
+1 - Para o item prod-004, a informação de peso do produto foi cadastrada? Se não, cadastre um peso de 160 g:
+HSETNX prod-004 peso "160 g"
+
+2 - O funcionário esqueceu de cadastrar a informação sobre o fabricante do teclado gamer (prod-013), então cadastre Redragon como fabricante.
+HSET prod-013 fabricante Redragon
+
+3 - O dono da loja está dando um desconto de R$ 69.90 para a SmartTV da Samsung (prod-000). Atualize este dado no banco.
+HINCRBYFLOAT prod-000 preco -69.90
+
+4 - O Fone de ouvido on-ear sem fio (prod-002) teve seu estoque zerado e não será reposto, pois ele saiu de linha. Então, exclua-o do banco.
+DEL prod-002
+
+5 - Foram vendidos 29 suportes para notebook (prod-003), atualize o estoque.
+HINCRBY prod-003 estoque -29
+
+6 - O usuário fez uma simulação de compra da Mi Band 5 (prod-016), colocando seu CEP, e o valor do frete deu R$44,90. Acrescente esse valor ao preco deste item.
+HINCRBYFLOAT prod-016 preco 44.90
+
+7 - A Samsung lançou o smartphone galaxy S21 e ele precisa ser cadastrado seguindo o padrão da nossa loja, como prod-018 e com os seguintes dados: 
+  - descrição: Smartphone Samsung Galaxy S21;
+  - preço: 4068.90;
+  - dimensões: 18 x 9 x 6 cm;
+  - tela: 6.7''
+  - peso: 400 g;
+  - ram: 8 GB;
+  - rom: 256 GB;
+  - cor: preto;
+  - estoque: 65
+
+HMSET prod-018 descricao "Smartphone Samsung Galaxy S21" dimensoes "18 x 9 x 6 cm" tela 6.7'' peso "400 g" ram "8 GB" rom "256 GB" cor preto preco 4068.90 estoque 65
+
+8 - Qual o peso, a cor e o preço da garrafa térmica (prod-014)?
+HMGET prod-014 peso cor preco
+
+9 - Quantos campos o jogo God of War Ragnorock (prod-011) possui?
+HLEN prod-011
+
+10 - Para a Caixa de Som Bluetooth (prod-007) foi cadastrada a informação do fabricante?
+HEXISTS prod-007 fabricante
+
+11 - O SSD Kingston (prod-010) teve a informação da velocidade erroneamente cadastrada. O valor correto é 500 MB/s, atualize-o no banco.
+HSET prod-010 velocidade "500 MB/s"
+
+12 - Quais são os campos (chaves) cadastradas para o monitor gamer da acer (prod-012)?
+HKEYS prod-012
+
+13 - O cliente quer saber mais detalhes sobre o colchão solteiro D33 (prod-005), então retorne do banco todos os dados cadastrados para este item.
+HGETALL prod-005
+
+14 - O dado de modelo do Smartphone Samsung Galaxy A23 (prod-006) é redundante, pois o modelo está informado na descrição, então apague o campo modelo.
+HDEL prod-006 modelo
+
+15 - Foram adquiridos 37 Apple Watches (prod-009) para a loja, atualize esse valor no estoque deste item.
+HINCRBY prod-009 estoque 37
+
+16 - Quais são os valores dos campos da cadeira gamer (prod-017) cadastrada em na loja?
+HVALS prod-017
+
+17 - O sabonete líquido actine (prod-015) teve seu estoque zerado, mas não sabemos quantos sabonetes havia no estoque, logo busque essa informação, zere o estoque e delete este produto do banco de dados.
+HGET prod-015 estoque
+HSET prod-015 estoque -25
+DEL prod-015
+
+18 - Os produtos do fabricante Sony (prod-008 e prod-011) sofreram um reajuste de R$ 151,87 e R$ 84,20, respectivamente; atualize-os na base de dados.
+HINCRBYFLOAT prod-008 preco 151.87
+HINCRBYFLOAT prod-011 preco 84.20
+
+19 - A chave da Smart TV (prod-000) foi cadastrada de forma errada, a chave correta é prod-001. Então, atualize essa informação no banco.
+RENAME prod-000 prod-001
+
+20 - Qual o tipo de valor armazenado no prod-018?
+TYPE prod-018

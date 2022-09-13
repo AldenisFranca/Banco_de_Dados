@@ -1,0 +1,56 @@
+1.
+use teste_prova
+db.filmes.insertMany([{_id: 1,
+titulo: 'Fica Comigo essa Noite',
+diretor:'João Falcão',
+roteiro:'Tatiana Maciel',
+elenco:['Alinne Moraes','Vladmir Brichta','Clarice Falcão','Milton Gonçalves'],
+lancamento:{ano:2006,producao:'Diler Trindade'}
+},
+
+{_id: 2,
+titulo: 'O Auto da Compadecida',
+diretor:'Guel Arraes',
+roteiro:'Ariano Suassuna',
+elenco:['Matheus Nachtergaele','Selton Melo','Virginia Cavendish','Denise Fraga', 'Fernanda Montenegro'],
+lancamento:{ano:2000,producao:'Globo Filmes', observacao:'serie de tv adaptada'}
+},
+
+{_id: 3,
+titulo: 'Central do Brasil',
+diretor:'Walter Salles',
+roteiro:'João Emanuel Carneiro',
+elenco:['Vinicius de Oliveira','Marília Pera','Fernanda Montenegro'],
+lancamento:{ano:1998,producao:'Video Filmes',observacao:'filmado em: Rio de Janeiro'}
+}])
+
+2. Inserir o filme Tropa de Elite, que foi lançado em 2007 e produzido pela Globo Filmes, cujo
+diretor foi José Padilha
+db.filmes.insertOne({
+titulo: 'Tropa de Elite',
+diretor:'José Padilha',
+lancamento:{ano:2007,producao:'Globo Filmes'}
+})
+	
+3. Apagar a informação de localização da filmagem do filme dirigido por Walter Salles.
+db.filmes.updateOne({diretor:'Walter Salles'},
+    {$unset:{'lancamento.observacao':''}})
+	
+4. Trazer apenas os nomes dos filmes ordenados pelo ano de lançamento.
+db.filmes.find({},{titulo:1,_id:0}).sort({'lancamento.ano':1})
+
+5. Quantos filmes que Fernanda Montenegro participou?
+db.filmes.find({elenco:'Fernanda Montenegro'}).count()
+
+6. Quais os nomes dos filmes cujo sobrenome do diretor termina com S e o filme foi lançado nos anos 2000?
+db.filmes.find({diretor:/s$/, 'lancamento.ano':2000},{titulo:1})
+
+7. Quais os nomes dos filmes que foram baseados em algum texto anterior ao roteiro?
+CANCELADO
+
+8. Quais os nomes e os anos de lançamentos dos filmes produzidos pela Globo Filmes?
+db.filmes.find({'lancamento.producao':'Globo Filmes'},{titulo:1, 'lancamento.ano':1,_id:0})
+
+9. Incluir o elenco do filme 'Tropa de Elite' com os seguintes atores: Wagner Moura, André Ramiro, Maria Ribeiro. Lembre-se de obedecer o modelo dos demais documentos.
+db.filmes.updateOne({titulo:'Tropa de Elite'},
+{$set:{elenco:['Wagner Moura', 'André Ramiro', 'Maria Ribeiro']}})

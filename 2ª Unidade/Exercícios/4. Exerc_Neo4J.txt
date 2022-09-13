@@ -1,0 +1,9 @@
+Consultas a serem resolvidas:
+1) Trazer os nomes dos filmes e os anos em que eles foram lançados ordenados pelo ano.
+2) Quais os nomes dos filmes cujo sobrenome do diretor termina com S e o filme foi lançado no ano 2000? (utilizar o comando ENDS WITH)
+3) Apagar a informação de localização da filmagem do filme dirigido por Walter Salles.
+4) Quais os nomes dos filmes que foram adaptados de algum texto anterior ao roteiro?
+5) Quais os filmes lançados pela Globo Filmes?
+6) Incluir o elenco do filme 'Tropa de Elite' com os seguintes atores: Wagner Moura, André Ramiro, Maria Ribeiro. Lembre de obedecer o modelo dos demais nós e relacionamentos.
+7) De quantos filmes Fernanda Montenegro participou? (utilizar o comando COUNT)
+8) Quais os filmes que foram lançados por alguma produtora.

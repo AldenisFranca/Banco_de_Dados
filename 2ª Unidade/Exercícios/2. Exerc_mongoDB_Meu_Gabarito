@@ -1,0 +1,78 @@
+/* Comandos Auxiliares */
+
+db.filme.find()
+
+db.filme.deleteMany({})
+
+/* 1ª Questão */
+db.filme.insertMany([
+filme1 = {_id: 1,
+    titulo: "Fica Comigo essa Noite",
+    diretor: "João Falcão",
+    roteiro: "Tatiana Maciel",
+    lancamento: {
+                    ano: 2006, 
+                    producao: "Diler Trindade"},
+    elenco: ["Alinne Moraes", "Vladimir Brichta", "Clarice Falcão", "Milton Gonçalves"]
+},
+filme2 = {_id: 2,
+    titulo: "O Auto da Compadecida",
+    diretor: "Guel Arraes",
+    roteiro: "Ariano Suassuna",
+    lancamento: {
+                    ano: 2000,
+                    producao: "Globo Filmes",
+                    observacao: "Série de TV adaptada"},
+    elenco: ["Matheus Nachtergaele", "Selton Melo", "Virgínia Cavendish", "Denise Fraga", "Fernanda Montenegro"]
+},
+filme3 = {_id: 3,
+    titulo: "Central do Brasil",
+    diretor: "Walter Salles",
+    roteiro: "João Emanuel Carneiro",
+    lancamento: {
+                    ano: 1998,
+                    producao: "Vídeo Filmes",
+                    observacao: filmado_em: "Rio de Janeiro"},
+    elenco: ["Vinícius de Oliveira", "Marília Pêra", "Fernanda Montenegro"]
+},
+])
+
+/* 2ª Questão */
+
+db.filme.insertOne({
+    _id: 4,
+    titulo: "Tropa de Elite",
+    diretor: "José Padilha",
+    lancamento: {
+                    ano: 2007,
+                    producao: "Globo Filmes"}
+    })
+
+/* 3ª Questão */
+
+db.filme.updateOne({diretor: "Walter Salles"}, {$unset:{"lancamento.observacao":""}})
+
+/* 4ª Questão */
+
+db.filme.find({}, {_id: 0, titulo: 1}).sort({"lancamento.ano":1})
+/* decrescente: -1 */
+
+/* 5ª Questão */
+
+db.filme.find({elenco: "Fernanda Montenegro"}).count()
+
+/* 6ª Questão */
+
+db.filme.find({diretor: /s$/, "lancamento.ano": 2000},{_id: 0, titulo: 1})
+
+/* 7ª Questão */
+
+ANULADA
+
+/* 8ª Questão */
+
+db.filme.find({"lancamento.producao": "Globo Filmes"}, {_id: 0, titulo: 1, "lancamento.ano": 1})
+
+/* 9ª Questão */
+
+db.filme.updateOne({titulo: "Tropa de Elite"}, {$set: {elenco: ["Wagner Moura", "André Ramiro", "Maria Ribeiro"]}})
