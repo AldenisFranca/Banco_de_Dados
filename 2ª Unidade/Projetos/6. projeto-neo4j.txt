@@ -1,0 +1,209 @@
+CREATE(p1:Professor{nome:'Josino Rodrigues', formacao:'Web nuclear'}),
+(p2:Professor{nome:'Carolina Torres', formacao:'BDs sonicos'}),
+(p3:Professor{nome:'Luciano Cabral', formacao:'IA Xing ling'}),
+(p4:Professor{nome:'Nilson Candido', formacao:'Engenharia de Quiz'}),
+(p5:Professor{nome:'Carlos Brasil', formacao: 'Teste de Comandos'}),
+(p6:Professor{nome:'Carlos José', formacao:'Psicologia de telas'}),
+(p7:Professor{nome:'Roberto Alencar', formacao:'Ciencia do cronograma'}),
+(p8:Professor{nome:'Emmanuele Ribeiro', formacao:'TCC da libertacao'})
+
+
+CREATE(d1:Disciplina{nome:'Web 2', CH:45}),
+(d2:Disciplina{nome:'Web 3', CH:60}),
+(d3:Disciplina{nome:'BD 2', CH:60}),
+(d4:Disciplina{nome:'IA', CH:60}),
+(d5:Disciplina{nome:'Testes de software', CH:60}),
+(d6:Disciplina{nome:'POO',CH:60}),
+(d7:Disciplina{nome:'Programacao para mobile', CH:60}),
+(d8:Disciplina{nome:'IHC', CH:45}),
+(d9:Disciplina{nome:'Metodologia cientifica', CH:45}),
+(d10:Disciplina{nome:'BD', CH:45})
+
+
+CREATE(p1)-[:ministra{turno:'tarde'}]->(d1)
+CREATE(p1)-[:ministra{turno:'manha'}]->(d2)
+CREATE(p1)-[:ministra{turno:'noite'}]->(d2)
+CREATE(p2)-[:ministra{turno:'noite'}]->(d3)
+CREATE(p2)-[:ministra{turno:'tarde'}]->(d10)
+CREATE(p2)-[:ministra{turno:'noite'}]->(d10)
+CREATE(p3)-[:ministra{turno:'manha'}]->(d4)
+CREATE(p3)-[:ministra{turno:'noite'}]->(d4)
+CREATE(p4)-[:ministra{turno:'noite'}]->(d7)
+CREATE(p5)-[:ministra{turno:'noite'}]->(d5)
+CREATE(p7)-[:ministra{turno:'noite'}]->(d6)
+CREATE(p6)-[:ministra{turno:'manha'}]->(d8)
+CREATE(p6)-[:ministra{turno:'noite'}]->(d8)
+CREATE(p8)-[:ministra{turno:'noite'}]->(d9)
+
+
+CREATE(a1:Aluno{nome:'Thierry Silva', idade:18, cidade:'Jaboatao', formacao:'Tecnico em Informatica'}),
+(a2:Aluno{nome:'Alvaro Carvalho', idade:20, cidade:'Recife',formacao:'Tecnico em Administracao'}),
+(a3:Aluno{nome:'Aldenis França', idade:30, cidade:'Jaboatao', formacao:'Engenheiro eletricista'}),
+(a4:Aluno{nome:'Eduardo Sabino', idade:29, cidade:'Jaboatao', formacao:'Engenheiro Mecanico'}),
+(a5:Aluno{nome:'Matheus Moura', idade:23, cidade:'Jaboatao', formacao:'Tecnico em IPI'}),
+(a6:Aluno{nome:'Danillo Santos', idade:32, cidade:'Jaboatao', formacao:'Direito'})
+
+
+CREATE(c1:Curso{nome:'ADS', coordenador:'Diego Silva'})
+CREATE(c2:Curso{nome:'IPI', coordenador:'Bruno DAmbrosio'})
+CREATE(c3:Curso{nome:'Qualidade', coordenador:'Ricardo Lopes'})
+
+
+CREATE(d1)-[:FazParte{periodo:2}]->(c2)
+CREATE(d2)-[:FazParte{periodo:3}]->(c1)
+CREATE(d3)-[:FazParte{periodo:3}]->(c1)
+CREATE(d4)-[:FazParte{periodo:3}]->(c1)
+CREATE(d5)-[:FazParte{periodo:4}]->(c1)
+CREATE(d6)-[:FazParte{periodo:3}]->(c1)
+CREATE(d7)-[:FazParte{periodo:4}]->(c1)
+CREATE(d8)-[:FazParte{periodo:3}]->(c1)
+CREATE(d9)-[:FazParte{periodo:3}]->(c1)
+CREATE(d10)-[:FazParte{periodo:2}]->(c2)
+
+
+CREATE(a1)-[:PagaDisciplina{situacao:'pendente'}]->(d2)
+CREATE(a1)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d3)
+CREATE(a1)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d6)
+CREATE(a1)-[:PagaDisciplina{situacao:'aprovado', semestre:'2022.1', media:8.7}]->(d8)
+CREATE(a1)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d9)
+
+CREATE(a2)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d2)
+CREATE(a2)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d3)
+CREATE(a2)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d5)
+CREATE(a2)-[:PagaDisciplina{situacao:'aprovado', semestre:'2021.2', media:8.8}]->(d6)
+CREATE(a2)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d7)
+CREATE(a2)-[:PagaDisciplina{situacao:'aprovado', semestre:'2021.2', media:9.3}]->(d8)
+CREATE(a2)-[:PagaDisciplina{situacao:'aprovado', semestre:'2021.2', media:7.9}]->(d9)
+
+CREATE(a3)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d2)
+CREATE(a3)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d3)
+CREATE(a3)-[:PagaDisciplina{situacao:'aprovado', semestre:'2021.2', media:10}]->(d4)
+CREATE(a3)-[:PagaDisciplina{situacao:'pendente', semestre:'2022.1'}]->(d5)
+CREATE(a3)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d6)
+CREATE(a3)-[:PagaDisciplina{situacao:'pendente'}]->(d7)
+
+CREATE(a4)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d2)
+CREATE(a4)-[:PagaDisciplina{situacao:'aprovado', semestre:'2021.2', media:8.4}]->(d3)
+CREATE(a4)-[:PagaDisciplina{situacao:'aprovado', semestre:'2021.2', media:10}]->(d6)
+CREATE(a4)-[:PagaDisciplina{situacao:'pendente'}]->(d7)
+
+CREATE(a5)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d2)
+CREATE(a5)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d3)
+CREATE(a5)-[:PagaDisciplina{situacao:'pendente', semestre: '2022.1'}]->(d5)
+CREATE(a5)-[:PagaDisciplina{situacao:'aprovado', semestre:'2022.1', media:9.5}]->(d6)
+CREATE(a5)-[:PagaDisciplina{situacao:'pendente'}]->(d7)
+CREATE(a5)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d8)
+
+CREATE(a6)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d2)
+CREATE(a6)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d3)
+CREATE(a6)-[:PagaDisciplina{situacao:'aprovado', semestre:'2022.1', media:9}]->(d4)
+CREATE(a6)-[:PagaDisciplina{situacao:'pendente'}]->(d5)
+CREATE(a6)-[:PagaDisciplina{situacao:'pendente'}]->(d7)
+CREATE(a2)-[:PagaDisciplina{situacao:'cursando', semestre:'2022.1'}]->(d9)
+
+
+1. Qual o nome do coordenador do curso de Qualidade?
+
+MATCH (c:Curso{nome:'Qualidade'})
+RETURN c.coordenador as Coordenador
+
+2. Quantas disciplinas o professor Josino Rodrigues ministra?
+
+MATCH (p:Professor{nome:'Josino Rodrigues'})-[:ministra]->(d:Disciplina)
+RETURN COUNT(d) as Qtd_disciplinas
+
+3. Quais disciplinas tem carga horária de 45h e são do curso de IPI?
+Apresentar o nome da disciplina, o professor que a ministra e em que turno.
+
+MATCH (p:Professor)-[m:ministra]->(d1:Disciplina{CH:45}), (d1)-[:FazParte]->(c:Curso{nome:'IPI'})
+RETURN  d1.nome, p.nome, m.turno
+
+4. Qual a menor média que um aluno teve na disciplina de POO? 
+
+MATCH (a:Aluno)-[pd:PagaDisciplina]->(d:Disciplina{nome:'POO'})
+RETURN min(pd.media)
+
+5. Inclua a propriedade 'casado' a todos os alunos, inicializando-a como False.
+
+MERGE (a:Aluno)
+SET a.casado = False
+
+6. O aluno Matheus Moura retirou a disciplina IHC no período de modificação, então remova-a do seu cadastro.
+MATCH (:Aluno{nome:'Matheus Moura'})-[pd:PagaDisciplina]->(:Disciplina{nome:'IHC'})
+DELETE pd
+
+7. O aluno que é Engenheiro Mecânico teve a informação de sua cidade cadastrada erroneamente, pois ele mora em Recife. Além disso, ele é casado e fez aniversário, então, atualize esses dados no banco.
+
+MATCH (a:Aluno{formacao:'Engenheiro Mecanico'})
+SET a.cidade = 'Recife', a.idade = 30, a.casado = True
+
+8. Qual a média de idade dos alunos?
+
+MATCH (a:Aluno)
+RETURN avg(a.idade)
+
+9. Quais os nomes dos alunos que têm uma formação anterior de Técnico? Exiba os nomes dos alunos e suas formações, ordenadas pela idade.
+
+MATCH (a:Aluno) 
+WHERE a.formacao CONTAINS 'Tecnico'
+RETURN a.nome, a.formacao
+ORDER BY a.idade
+
+10. Quais os alunos e as disciplinas em que eles foram aprovados em 2021.2?
+
+MATCH (a:Aluno)-[:PagaDisciplina{situacao:'aprovado', semestre:'2021.2'}]->(d:Disciplina)
+RETURN a.nome, d.nome
+
+11. Exiba as relações de todas as disciplinas, com seus respectivos professores e cursos que possuem alguma disciplina cadastrada.
+
+MATCH (p:Professor)-[:ministra]->(d:Disciplina)-[:FazParte]->(c:Curso)
+RETURN *
+
+12. Qual o valor da média das médias de cada disciplina que possuem esses dados?
+
+MATCH (a:Aluno)-[pd:PagaDisciplina]->(d:Disciplina)
+WHERE pd.media IS NOT NULL
+RETURN d.nome, avg(pd.media)
+
+13. Quais os nomes dos professores que se iniciam com 'Ca' e ministram disciplinas com 60 horas de carga horária?
+
+MATCH (p:Professor)-[:ministra]->(d:Disciplina)
+WHERE p.nome STARTS WITH 'Ca' AND d.CH = 60
+RETURN p.nome
+
+14. Quais alunos estão com a situação pendente na disciplina de Programação para mobile?
+
+MATCH (a:Aluno)-[pd:PagaDisciplina{situacao:'pendente'}]->(d:Disciplina{nome:'Programacao para mobile'})
+RETURN a.nome
+
+15. Quais alunos têm até de 30 anos, incluindo-o, moram em Jaboatão e estão cursando a disciplina de BD 2? Retorne o nome do aluno e o semestre.
+
+MATCH (a:Aluno{cidade:'Jaboatao'})-[pd:PagaDisciplina{situacao:'cursando'}]->(d:Disciplina{nome:'BD 2'})
+WHERE a.idade <= 30
+RETURN a.nome, pd.semestre
+
+16. Qual curso tem nenhuma disciplina cadastrada?
+
+MATCH (c:Curso)
+WHERE NOT ()-[]-(c)
+RETURN c.nome as Curso
+
+17. Quais alunos não tem a situação de pendente nas disciplinas em seu cadastro?
+
+MATCH (a:Aluno)
+WHERE NOT (a)-[:PagaDisciplina{situacao:'pendente'}]-()
+RETURN a.nome
+
+18. O aluno que tem 30 anos e mora em Jaboatão teve o semestre cadastrado de forma errada na disciplina Testes de software, pois a situação é pendente. Logo, remova essa informação do banco de dados.
+
+MATCH (a:Aluno{idade:30, cidade:'Jaboatao'})-[pd:PagaDisciplina]->(:Disciplina{nome:'Testes de software'})
+REMOVE pd.semestre
+
+
+-----------------------------------------------------------------------------------------------
+18. Os professores Luciano Cabral e Roberto Alencar obtiveram o diploma de Mestre das Comunicações, então acrescente essa informação no cadastro deles.
+
+MERGE (p1:Professor{nome:'Luciano Cabral'})
+MERGE (p2:Professor{nome:'Roberto Alencar'})
+SET p1.formacao = 'IA Xing ling'
+SET p2.formacao = 'Ciencia do cronograma'

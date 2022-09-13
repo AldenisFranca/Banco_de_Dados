@@ -1,0 +1,41 @@
+// 1) Trazer os nomes dos filmes e os anos em que eles foram lançados ordenados pelo ano.
+match (f:Filme)
+return f.titulo, f.ano
+order by f.ano
+
+// 2) Quais os nomes dos filmes cujo sobrenome do diretor termina com S e o filme foi lançado no ano 2000? (utilizar o comando ENDS WITH)
+match (p1:Artista)-[:participa{funcao:'diretor'}]->(f5:Filme)
+where p1.nome ends with 's' and f5.ano = 2000
+return *
+
+//3) Apagar a informação de localização da filmagem do filme dirigido por Walter Salles.
+match (p:Artista{nome:'Walter Salles'})-[:participa{funcao:'diretor'}]->(f:Filme)
+remove f.filmado_em
+return *
+
+//4) Quais os nomes dos filmes que foram adaptados de algum texto anterior ao roteiro?
+match (f:Filme)-[:adaptacao_de]->(au)
+return f.titulo
+
+//5) Quais os filmes lançados pela Globo Filmes?
+match (f1)-[:lancamento]->(pr1{nome:'Globo Filmes'})
+return *
+
+//6) Incluir o elenco do filme 'Tropa de Elite' com os seguintes atores: Wagner Moura, André Ramiro, Maria Ribeiro. Lembre de obedecer o modelo dos demais nós e relacionamentos.
+match (f1:Filme{titulo:'Tropa de Elite'})
+With f1
+CREATE(a1:Artista{nome:'Wagner Moura'}),
+(a2:Artista{nome:'André Ramiro'}),
+(a3:Artista{nome:'Maria Ribeiro'})
+
+create(a1)-[:participa{funcao:'ator'}]->(f1)
+CREATE(a2)-[:participa{funcao:'ator'}]->(f1)
+CREATE(a3)-[:participa{funcao:'ator'}]->(f1)
+
+
+// 7) De quantos filmes Fernanda Montenegro participou? (utilizar o comando COUNT)
+MATCH (n:Artista{nome:'Fernanda Montenegro'})-[:participa]-(r:Filme)
+RETURN count(r)
+
+//8) Quais os filmes que foram lançados por alguma produtora.
+MATCH p=(f:Filme)-[r:lancamento]->() RETURN (f)
