@@ -1,0 +1,49 @@
+TABELA MESA
+numero		PK	INTEGER	SIM
+localizacao
+num_setor	FK (SETOR - numero)
+cod_garcom 	FK (GARCOM - codigo)
+comissao
+
+TABELA SETOR
+numero		PK
+descricao
+status
+valor_couvert
+
+TABELA GARCOM
+codigo	PK
+nome
+cpf
+salario
+expediente
+rua
+numero
+bairro
+cidade
+ponto_referencia
+
+TABELA ITEM_CARDAPIO
+nome
+descricao
+numero	  PK
+preco_unitario
+num_combina FK (ITEM_CARDAPIO - numero)
+
+TABELA COMANDA
+cpf
+nome
+qtde_pessoas
+numero	PK
+num_mesa FK (MESA - numero)
+
+TABELA TELEFONES
+num_comanda  PK, FK(comanda - numero)
+num_telefone PK 
+
+TABELA INCLUI
+num_comanda PK, FK(COMANDA-numero)
+num_item	PK, FK(ITEM_CARDAPIO-numero)
+quantidade	PK
+
+
